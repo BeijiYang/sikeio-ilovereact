@@ -492,13 +492,14 @@ a:hover {
 
 .section {
 /*  background-color: rgba(255,0,0,0.3);*/
-  border: 2px solid #FFF;
+ /* border: 2px solid #FFF;*/
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .column {
@@ -518,6 +519,17 @@ a:hover {
           justify-content: center;
 }
 
+#intro-section {
+  background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1)), url(/img/background.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1)), url(/img/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/*.overlay {
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
+}*/
+
 a{
   padding: 10px;
 }
@@ -533,9 +545,17 @@ a{
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
+  position: relative;
 /*  background-color: rgba(255,0,0,0.3);
 */}
 
+.demo {
+  position: absolute;
+/*  top: 90px;*/
+/*  left: 25px;*/
+  left: 30%;
+}
 .feature-description {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -554,3 +574,37 @@ a{
   text-align: left;
 /*  background-color: rgba(0,255,0,0.3);
 */}
+
+#android-robot {
+  -ms-flex-item-align:center;
+      align-self:center;
+
+  position: absolute;
+  bottom:0;
+  right:0;
+  -webkit-transform: translate(50%,50%)  rotate(-45deg);
+          transform: translate(50%,50%)  rotate(-45deg);
+}
+
+#slider-control {
+  padding: 3px;
+  position: fixed;
+  right: 0;
+  top:50%;
+
+}
+
+#slider-control a {
+  padding: 3px;
+}
+
+#slider-control .dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+#slider-control .active .dot {
+  background-color: #fff;
+}
