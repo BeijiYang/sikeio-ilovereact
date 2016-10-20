@@ -22,5 +22,76 @@ body, html {
 }
 
 body {
-  background-color: rgba(255,0,0,0.3);
+  background-color: #1F1E34;
+  color: #FFF;
+  font-family: "Avenir Next",
+      "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+      Arial, "Lucida Grande", sans-serif;
+  font-weight: 100;
 }
+
+h1 {
+  font-size: 64px;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 100;
+}
+
+p {
+  font-size: 24px;
+}
+
+a {
+  font-weight: 400;
+  color: #FFF;
+}
+
+a:hover {
+  font-weight: 400;
+  color: #DADADA;
+  text-decoration: none;
+}
+
+.section {
+/*  background-color: rgba(255,0,0,0.3);*/
+  border: 2px solid #FFF;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.column {
+  flex-direction: row;
+}
+
+.link {
+  flex-direction: row;
+  justify-content: center;
+}
+
+a{
+  padding: 10px;
+}
+
+.iphone-demo {
+  flex-grow: 1;
+  flex-basis: 0;
+  align-self :stretch;
+  justify-content: center;
+/*  background-color: rgba(255,0,0,0.3);
+*/}
+
+.feature-description {
+  flex-grow: 1;
+  flex-basis: 0;
+  align-self :stretch;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+/*  background-color: rgba(0,255,0,0.3);
+*/}
