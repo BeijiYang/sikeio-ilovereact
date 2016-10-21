@@ -76,9 +76,13 @@ a:hover {
 }
 
 #intro-section {
-  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1)), url(../img/background-1.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1)), url(../img/background.jpg);
   background-size: cover;
   background-position: center;
+}
+
+#move {
+    position: relative;
 }
 
 a{
