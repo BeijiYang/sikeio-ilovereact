@@ -26,16 +26,9 @@ function animateLogo() {
 }
 function animateRobot() {
   var t = new TimelineMax({yoyo: true, repeat: -1});
-t.to("#android-robot",2,{x: -400})
-  .to("#android-robot",0.5,{rotation: "360deg"})
-  .to("#android-robot",1,{y: -100})
-  .to("#android-robot",0.5,{rotation: "-=50deg"})
-  .to("#android-robot",0.5,{rotation: "50deg"})
-  .to("#android-robot",0.5,{rotation: "-=50deg"})
-  .to("#android-robot",0.5,{rotation: "50deg"})
-  .to("#android-robot",2,{x: -20})
-  .to("#android-robot",2,{y: 100})
-  .to("#android-robot",0.5,{rotation: "-=360deg"});
+
+  t.to("#android-robot",1,{rotation: "-30deg"})
+   .to("#android-robot",0.5,{rotation: "-60deg"});
 }
 
 
