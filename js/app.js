@@ -40,7 +40,6 @@ function updateSliderControl() {
   for(var i = 0; i < links.length; i++) {
     var link = links[i];
     var sectionId = "#"+link.href.toString().split('#')[1];
-
     // 获取被链接指向的部分
     var section = document.querySelector(sectionId);
     var sectionTop = (i)*section.offsetHeight;
@@ -57,8 +56,40 @@ function updateSliderControl() {
 }
 
 
+//平滑滚动
+function scrollToElement(section) {
+
+  var topOfElement = section.offsetTop;//当你点击指示器的链接时，浏览器立即跳转到被链接 href 属性定位的部分。
+  //console.log(topOfElement)
+  TweenMax.to(window,1,{
+    scrollTo: {
+      y: topOfElement,
+    },
+    // scrollTo:sectionId 
+    ease: Power2.easeInOut,
+  });
+}
+
+function addSmoothScrolling() {
+  var links = document.querySelectorAll("#slider-control a")
+
+  for(var i = 0; i < links.length; i++) {
+    var link = links[i];
+    (function (link) {
+            link.addEventListener("click",function(event) {
+              // `event` 是鼠标点击事件
+              event.preventDefault();
+              var href = link.href;
+              console.log(href+"     1024")
+              var sectionId = "#"+href.toString().split('#')[1];
+              var section = document.querySelector(sectionId);
+              scrollToElement(section);
+            });
+        })(link); //使用闭包或者 ES6 `let` 修复事件侦监听器的 bug 
+  }
+}
+
 window.onscroll = function() {
-  // ...
   updateSliderControl();
 }
 
@@ -66,9 +97,8 @@ window.onload = function() {
   animateLogo();
   animateRobot();
   updateSliderControl();
+  addSmoothScrolling();
 };
-
-
 
 // var deg360 = 2*Math.PI;
 // var $logo = document.getElementById("move");
