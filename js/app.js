@@ -1,5 +1,5 @@
+//animate运动
 function animateLogo() {
-
   TweenMax.fromTo("#move",4, {
     // from
     css: {
@@ -24,6 +24,7 @@ function animateLogo() {
   }
 );
 }
+
 function animateRobot() {
   var t = new TimelineMax({yoyo: true, repeat: -1});
 
@@ -31,11 +32,42 @@ function animateRobot() {
    .to("#android-robot",0.5,{rotation: "-60deg"});
 }
 
+//SliderControl
+function updateSliderControl() {
+    // 获得所有的 slider 链接
+    var links = document.querySelectorAll("#slider-control a")
+      // console.log (window.scrollY+"  实时高度");
+  for(var i = 0; i < links.length; i++) {
+    var link = links[i];
+    var sectionId = "#"+link.href.toString().split('#')[1];
+
+    // 获取被链接指向的部分
+    var section = document.querySelector(sectionId);
+    var sectionTop = (i)*section.offsetHeight;
+    var sectionBottom = (i+1)*section.offsetHeight;
+      // console.log (sectionTop+"       Top");
+      // console.log (sectionBottom+"       Bottom")；
+    // 检查 window.scrollY 是否在这部分中
+    if(window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+      link.className = "active";
+    } else {
+      link.className = "";
+    }
+  }
+}
+
+
+window.onscroll = function() {
+  // ...
+  updateSliderControl();
+}
 
 window.onload = function() {
   animateLogo();
   animateRobot();
+  updateSliderControl();
 };
+
 
 
 // var deg360 = 2*Math.PI;
