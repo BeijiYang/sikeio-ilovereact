@@ -519,6 +519,17 @@ a:hover {
           justify-content: center;
 }
 
+#iphone-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*background-color: rgba(255,0,0,0.3);*/
+
+  -webkit-transform: translate(0,80%);
+
+          transform: translate(0,80%)
+}
+
 #intro-section {
   background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(31,30,52,1)), url(../img/background.jpg);
   background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1)), url(../img/background.jpg);
@@ -552,26 +563,24 @@ a{
 
 .demo {
   position: absolute;
-/*  top: 90px;*/
-/*  left: 25px;*/
-  left: 30%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
 }
 .feature-description {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
-  -ms-flex-item-align :stretch;
-      align-self :stretch;
-  -ms-align-items: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  /*flex-grow: 1;
+  flex-basis: 0;
+  align-self :stretch;*/
+ /* -ms-align-items: flex-start;
+  align-items: flex-start;*/
+  /*justify-content: center;*/
+
+  width: 50%;
+  /*height: 100%;*/
+  margin-right: 0;
   text-align: left;
+  -webkit-transform: translate(50%,25%);
+          transform: translate(50%,25%);
 /*  background-color: rgba(0,255,0,0.3);
 */}
 
@@ -607,4 +616,15 @@ a{
 
 #slider-control .active .dot {
   background-color: #fff;
+}
+@media(max-height: 700px)  {
+  .react-logo {
+    height: 100px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+   a {
+    font-size: 5px;
+  }
 }

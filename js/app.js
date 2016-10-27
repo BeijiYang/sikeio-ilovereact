@@ -80,13 +80,33 @@ function addSmoothScrolling() {
               // `event` 是鼠标点击事件
               event.preventDefault();
               var href = link.href;
-              console.log(href+"     1024")
+              //console.log(href+"     1024")
               var sectionId = "#"+href.toString().split('#')[1];
               var section = document.querySelector(sectionId);
               scrollToElement(section);
             });
         })(link); //使用闭包或者 ES6 `let` 修复事件侦监听器的 bug 
   }
+}
+
+function addScrollMagic() {
+  var controller = new ScrollMagic.Controller();
+  // TweenMax.to("#iphone-overlay", 1, {width:"50%",y: "100%" } )
+  var moveIphone = new ScrollMagic.Scene({
+    triggerElement: "#native",
+    triggerHook: "onEnter",
+    duration: "100%"
+  }).addTo(controller)
+     // .addIndicators({name: "move iphone"})
+    .setTween("#iphone-overlay", 1, {width:"50%",y: "100%" })
+
+  var pinIphone = new ScrollMagic.Scene({
+    triggerElement: "#native",
+    triggerHook: "onLeave",
+    duration: "100%"
+  }).addTo(controller)
+    // .addIndicators({name: "pin iphone"})
+    .setPin("#iphone-overlay")
 }
 
 window.onscroll = function() {
@@ -98,6 +118,7 @@ window.onload = function() {
   animateRobot();
   updateSliderControl();
   addSmoothScrolling();
+  addScrollMagic();
 };
 
 // var deg360 = 2*Math.PI;
@@ -116,6 +137,5 @@ window.onload = function() {
 //   // 设置一个计时器在 
 //   setTimeout(draw,100);
 // }
-
 
 // setTimeout(draw,100);
